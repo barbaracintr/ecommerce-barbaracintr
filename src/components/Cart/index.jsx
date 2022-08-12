@@ -1,25 +1,30 @@
+import { FormControlUnstyledContext } from "@mui/base";
 import { useContext } from "react";
 import { CartContext } from "../../providers/cart";
+import { ProductsCart } from "../ProductsCart";
+import { Total } from "../Total";
 
 export const Cart = () => {
-  const { itemCart, addToProdutctsCart, removeFromProductsCart } =
-    useContext(CartContext);
+  const { itemCart, removeFromProductsCart } = useContext(CartContext);
 
+  console.log(itemCart)
   return (
     <>
       <h1>Carrinho de Produtos</h1>
       <ul>
-        {itemCart.map((item, index) => (
-          <li key={index}>
-            <h2>{item.title}</h2>
-            <p>R$ {item.price.toFixed(2)}</p>
-            <img src={item.image} />
-            <button id={index} onClick={() => removeFromProductsCart(item)}>
-              Remover do carrinho
-            </button>
-          </li>
-        ))}
+        {itemCart.length !== 0 ? (
+          itemCart.map((item, index) => (
+            <ProductsCart
+              key={index}
+              product={item}
+              removeFromProductsCart={removeFromProductsCart}
+            />
+          ))
+        ) : (
+          <p>Ainda não há itens no carrinho</p>
+        )}
       </ul>
+      <Total productsCart={itemCart}/>
     </>
   );
 };
