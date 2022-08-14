@@ -6,16 +6,12 @@ export const CartContext = createContext([]);
 export const CartProvider = ({ children }) => {
   const [itemCart, setItemCart] = useState([]);
 
-  const addToProdutctsCart = (item) => {
+  const addProductsToCart = (item) => {
     if (itemCart.includes(item)) {
-      const indexProduct = itemCart.findIndex((currentValue) => {
-        return currentValue === item;
-      });
+      const indexProduct = itemCart.findIndex((currentValue) => (currentValue === item));
       itemCart.splice(indexProduct, 1);
-      setItemCart([...itemCart, item]);
-    } else {
-      setItemCart([...itemCart, item]);
     }
+    setItemCart([...itemCart, item]);
   };
 
   const removeFromProductsCart = (item) => {
@@ -26,7 +22,11 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ itemCart, addToProdutctsCart, removeFromProductsCart }}
+      value={{
+        itemCart,
+        addProductsToCart,
+        removeFromProductsCart,
+      }}
     >
       {children}
     </CartContext.Provider>

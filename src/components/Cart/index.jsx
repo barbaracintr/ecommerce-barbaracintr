@@ -7,7 +7,6 @@ import { Total } from "../Total";
 export const Cart = () => {
   const { itemCart, removeFromProductsCart } = useContext(CartContext);
 
-  console.log(itemCart)
   return (
     <>
       <h1>Carrinho de Produtos</h1>
