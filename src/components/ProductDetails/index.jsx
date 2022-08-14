@@ -8,7 +8,7 @@ import { ProductsContext } from "../../providers/products";
 
 export const ProductDetails = () => {
   const { products } = useContext(ProductsContext);
-  const { addToProdutctsCart } = useContext(CartContext);
+  const { addProductsToCart } = useContext(CartContext);
 
   const { productId } = useParams();
 
@@ -22,21 +22,16 @@ export const ProductDetails = () => {
   }, [productId]);
 
 
-  function addToCart() {
-      toast.success("Produto adicionado ao carrinho");
-      addToProdutctsCart(selectedProduct);
-      totalPrice()
-  };
-
   const inputRef = useRef(0);
-  function totalPrice() {
+  const addToCart = () => {
     const qtd = inputRef.current.value;
     if (qtd > 0) {
       const mult = selectedProduct.price * qtd;
       selectedProduct.qtdTotal = mult
+      toast.success("Produto adicionado ao carrinho");
+      addProductsToCart(selectedProduct);
     }
   }
-
 
   return (
     <>
@@ -46,7 +41,7 @@ export const ProductDetails = () => {
       <p>{selectedProduct.price}</p>
       <p>{selectedProduct.description}</p>
       <label>Quantidade</label>
-      <input ref={inputRef} type="number" min="1" max="10" />
+      <input ref={inputRef} type="number" min="1" max="100"/>
       <button onClick={addToCart}>Adicionar ao carrinho</button>
     </>
   );

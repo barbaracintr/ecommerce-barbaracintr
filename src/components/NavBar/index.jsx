@@ -1,20 +1,24 @@
 import { Link } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ProductsContext } from "../../providers/products";
 
 export const NavBar = () => {
   const navigate = useNavigate();
 
-  const [btnHome, setBtnHome] = useState(true);
+  const { populateProducts } = useContext(ProductsContext);
+
+  // const [btnHome, setBtnHome] = useState(true);
 
   const cartProducts = () => {
-    setBtnHome(false);
+    // setBtnHome(false);
     navigate("/cart");
   };
 
   const shope = () => {
-    setBtnHome(true);
+    // setBtnHome(true);
     navigate("/");
+    populateProducts()
   };
 
   return (
