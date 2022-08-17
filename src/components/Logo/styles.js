@@ -2,5 +2,7 @@ import styled from "styled-components"
 
 export const LogoStore = styled.span`
     color: #ffff;
-    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Inter';
 `

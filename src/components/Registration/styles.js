@@ -10,47 +10,42 @@ import {
 
 export const StyledForm = styled.form`
   margin: 0 auto;
-  padding: 30px;
-  max-width: 400px;
-  color: #000;
+  width: 80%;
+  padding: 25px;
+  .error {
+    color: #d32f2f;
+    font-weight: 400;
+    font-size: 0.75rem;
+  }
 `;
 export const StyledTypography = muiStyles.styled(Typography)`
-    color: #000;
-    line-height: 0px;
-    font-size: 18px;
+    color: ${(props) => (props.title ? "#89f" : "#0009")};
+    font-size: ${(props) => (props.title ? "20px" : "15px")};
+    padding: ${(props) => (props.title ? "30px" : "5px")};
     text-align: center;
 `;
 export const StyledButton = muiStyles.styled(Button)`
-    background-color: #59323F;
-    font-family: 'Inter';
+    background-color: #89f;
     width: 260px;
 `;
 export const StyledTextField = muiStyles.styled(TextField)`
-    color: #000;
+    color: #0009;
     width: 260px;
+    margin-bottom: 20px;
 `;
 export const StyledPaper = muiStyles.styled(Paper)`
-    background-color: #212529;
-    padding: 20px;
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-family: 'Inter';
 `;
 export const StyledInputLabel = muiStyles.styled(InputLabel)`
-    color: #000;
-    font-family: 'Inter';
+    color: #0009;
     font-style: normal;
     font-weight: 400; 
     font-size: 12.182px;
 `;
 export const StyledButtonLogin = muiStyles.styled(Button)`
     font-family: 'Inter';
-    color: #000;
-    
-`;
-export const StyledTypographyLogo = muiStyles.styled(Typography)`
-    color: #000;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 90px;
-    color: #FF577F;
-    font-family: 'Inter';
-    font-weight: bold;
+    color: #89f;
 `;

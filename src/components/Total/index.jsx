@@ -1,10 +1,22 @@
-export const Total = ({productsCart}) => {
+import { StyledCard, StyledTypography } from "./styles.js";
 
-    const total = productsCart.reduce((acc, productPrice) => {
-        return acc + productPrice.qtdTotal
-    }, 0)
+export const Total = ({ productsCart }) => {
+  const total = productsCart.reduce((acc, productPrice) => {
+    return acc + productPrice.qtdTotal;
+  }, 0);
 
-    return(
-        <p>Preço total: {total.toFixed(2)}</p>
-    )
-}
+  return (
+    <>
+      <StyledCard elevation={2}>
+        <StyledTypography
+          component="p"
+          sx={{
+            fontFamily: "Inter",
+          }}
+        >
+          Subtotal: ${total.toFixed(2)}
+        </StyledTypography>
+      </StyledCard>
+    </>
+  );
+};

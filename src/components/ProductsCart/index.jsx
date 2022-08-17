@@ -1,12 +1,26 @@
-export const ProductsCart = ({ product, removeFromProductsCart }) => {
+import {
+  ImgProduct,
+  StyledTypography,
+  StyledButton,
+  StyledPaper,
+  ItemList,
+} from "./styles.js";
 
+export const ProductsCart = ({ product, removeFromProductsCart }) => {
   return (
-    <li key={product.id}>
-      <h2>{product.title}</h2>
-      <img src={product.image} />
-      <button id={product.id} onClick={() => removeFromProductsCart(product)}>
-        Remover do carrinho
-      </button>
-    </li>
+    <>
+      <StyledPaper variant="outlined">
+        <ItemList key={product.id}>
+          <ImgProduct src={product.image} />
+          <StyledTypography component="p">{product.title}</StyledTypography>
+          <StyledButton
+            id={product.id}
+            onClick={() => removeFromProductsCart(product)}
+          >
+            Delete
+          </StyledButton>
+        </ItemList>
+      </StyledPaper>
+    </>
   );
 };

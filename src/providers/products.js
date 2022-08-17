@@ -16,8 +16,8 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const updateProducts = (newProducts) => {
-    const x = JSON.parse(newProducts)
-    setProducts(x)
+    const selectedCategory = JSON.parse(newProducts)
+    setProducts(selectedCategory)
   }
 
   useEffect(() => {

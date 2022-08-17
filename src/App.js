@@ -11,10 +11,12 @@ import { Login } from "./components/Login";
 import { ProductDetails } from "./components/ProductDetails";
 
 import { ToastContainer } from 'react-toastify';
+import { GlobalStyle } from "./styles/global";
 
 function App() {
   return (
     <>
+    <GlobalStyle />
       <ProductsProvider>
         <CartProvider>
           <Header />

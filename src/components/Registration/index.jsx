@@ -3,34 +3,40 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Typography } from "@mui/material";
 import {
   StyledTypography,
   StyledTextField,
   StyledButton,
   StyledButtonLogin,
   StyledForm,
+  StyledInputLabel,
+  StyledPaper,
 } from "./styles";
 
 import { api } from "../../data";
+import { FlexContainer } from "../../styles/global";
+import { useNavigate } from "react-router-dom";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Registration = ({ devs, setDevs }) => {
   const formSchema = yup.object().shape({
-    firstname: yup.string().required("Primeiro nome obrigatório"),
-    email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
-    username: yup.string().required("Usuário obrigatório"),
+    firstname: yup.string().required("First name required"),
+    username: yup.string().required("Username required"),
+    email: yup.string().required("Email required").email("E-mail inválido"),
     password: yup
       .string()
-      .required("Senha obrigatória")
-      .min(8, "A senha precisa ter pelo menos 8 digitos")
+      .required("Password required")
+      .min(8, "Password must be at least 8 digits long")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*.])(?=.{8,})/,
-        "A senha precisa de pelo menos uma letra maiúscula, uma letra minúscula, um número e um caracter especial."
+        "The password needs at least 1 uppercase letter, 1 lowercase letter, 1 number and 1 special character"
       ),
     passwordconfirmed: yup
       .string()
-      .required("Confirmação de senha obrigatória")
-      .oneOf([yup.ref("password")], "As senhas são diferentes"),
+      .required("Required field")
+      .oneOf([yup.ref("password")], "Passwords must be the same"),
   });
 
   const {
@@ -41,6 +47,8 @@ export const Registration = ({ devs, setDevs }) => {
     resolver: yupResolver(formSchema),
   });
 
+  const navigate = useNavigate();
+
   const onHandleSubmit = (data) => {
     api
       .post("/users", {
@@ -48,83 +56,84 @@ export const Registration = ({ devs, setDevs }) => {
         username: data.username,
         password: data.password,
         name: {
-            firstname: data.firstname,
-          lastname: 'XXX',
+          firstname: data.firstname,
+          lastname: "XXX",
         },
         address: {
-          city: 'XXX',
-          street: 'XXX',
-          number: 'XXX',
-          zipcode: 'XXX',
+          city: "XXX",
+          street: "XXX",
+          number: "XXX",
+          zipcode: "XXX",
           geolocation: {
-            lat: 'XXX',
-            long: 'XXX',
+            lat: "XXX",
+            long: "XXX",
           },
         },
-        phone: 'XXX',
+        phone: "XXX",
       })
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
+      .then((response) => toast.success("Successfully registered"))
+      .catch((err) => toast.error("Error when registering"));
   };
 
   const goLogin = () => {
-    console.log("aaaa");
+    navigate("/login");
   };
 
   return (
-    <div>
-      <h1>Shop Cadastro</h1>
-      <StyledForm onSubmit={handleSubmit(onHandleSubmit)}>
-        <StyledTypography variant="p" component="h1">
-          Crie sua conta
-        </StyledTypography>
-        <p>Primeiro nome</p>
-        <StyledTextField
-          error={!!errors.firstname}
-          helperText={errors.firstname?.message}
-          placeholder="Digite aqui seu primeiro nome"
-          variant="outlined"
-          {...register("firstname")}
-        />
-        <p>Username</p>
-        <StyledTextField
-          error={!!errors.username}
-          helperText={errors.username?.message}
-          placeholder="Digite aqui seu username"
-          {...register("username")}
-        />
-        <p>Email</p>
-        <StyledTextField
-          error={!!errors.email}
-          helperText={errors.email?.message}
-          placeholder="Digite aqui seu email"
-          variant="outlined"
-          {...register("email")}
-        />
-        <p>Senha</p>
-        <StyledTextField
-          error={!!errors.password}
-          helperText={errors.password?.message}
-          placeholder="Digite aqui sua senha"
-          type="password"
-          {...register("password")}
-        />
-        <p>Confirmar senha</p>
-        <StyledTextField
-          error={!!errors.passwordconfirmed}
-          helperText={errors.passwordconfirmed?.message}
-          placeholder="Digite aqui sua senha"
-          type="password"
-          {...register("passwordconfirmed")}
-        />
-        <StyledButton variant="contained" color="success" type="submit">
-          Cadastrar
-        </StyledButton>
-        <Typography component="h1">Já tem conta?</Typography>
-        <StyledButtonLogin size="small" variant="text" onClick={goLogin}>
-          Login
-        </StyledButtonLogin>
-      </StyledForm>
-    </div>
+    <>
+      <StyledPaper elevation={24}>
+        <StyledForm onSubmit={handleSubmit(onHandleSubmit)}>
+          <StyledTypography title variant="p" component="h1">
+            Create account
+          </StyledTypography>
+          <StyledInputLabel>Frist Name</StyledInputLabel>
+          <StyledTextField
+            variant="standard"
+            error={!!errors.firstname}
+            helperText={errors.firstname?.message}
+            {...register("firstname")}
+          />
+          <StyledInputLabel>Username</StyledInputLabel>
+          <StyledTextField
+            variant="standard"
+            error={!!errors.username}
+            helperText={errors.username?.message}
+            {...register("username")}
+          />
+          <StyledInputLabel>Email</StyledInputLabel>
+          <StyledTextField
+            variant="standard"
+            error={!!errors.email}
+            helperText={errors.email?.message}
+            {...register("email")}
+          />
+          <StyledInputLabel>Password</StyledInputLabel>
+          <StyledTextField
+            variant="standard"
+            error={!!errors.password}
+            helperText={errors.password?.message}
+            type="password"
+            {...register("password")}
+          />
+          <StyledInputLabel>Confirm Password</StyledInputLabel>
+          <StyledTextField
+            variant="standard"
+            error={!!errors.passwordconfirmed}
+            helperText={errors.passwordconfirmed?.message}
+            type="password"
+            {...register("passwordconfirmed")}
+          />
+          <StyledButton variant="contained" color="secondary" type="submit">
+            Submit
+          </StyledButton>
+        </StyledForm>
+        <FlexContainer flexDirection="row" justifyContent="center">
+          <StyledTypography component="p">Already registered?</StyledTypography>
+          <StyledButtonLogin size="small" variant="text" onClick={goLogin}>
+            Login
+          </StyledButtonLogin>
+        </FlexContainer>
+      </StyledPaper>
+    </>
   );
 };

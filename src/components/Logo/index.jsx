@@ -1,9 +1,9 @@
-import { LogoStore } from "./style";
+import { LogoStore } from "./styles";
 
 export const Logo = () => {
   return (
     <>
-      <LogoStore>Shop</LogoStore>
+      <LogoStore>Shopping</LogoStore>
     </>
   );
 };

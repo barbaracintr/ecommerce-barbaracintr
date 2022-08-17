@@ -14,17 +14,19 @@ export const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
     body{
-        background: #000;
+        background: #fff;
     }
-`
+`;
 
 export const FlexContainer = styled.div`
-  width: 100%;
   display: flex;
+  margin: 0 auto;
+  width: ${(props) => props.width || "100%"};
+//   height: ${(props) => props.height || "100%"};
   flex-direction: ${(props) => props.flexDirection || "row"};
   align-items: ${(props) => props.alignItems || "flex-start"};
   justify-content: ${(props) => props.justifyContent || "flex-start"};
   flex-wrap: ${(props) => props.flexWrap || "wrap"};
   gap: ${(props) => props.gap || "10px"};
-  padding: 20px;
-`
+  padding: ${(props) => props.padding || "20px"};
+`;
