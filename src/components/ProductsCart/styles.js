@@ -4,13 +4,17 @@ import * as muiStyles from "@mui/material/styles";
 import { Typography, Button, Paper } from "@mui/material";
 
 export const ItemList = styled.li`
-    display: flex;
-    justify-content: space-between;
-    aling-items: center;
+  display: flex;
+  justify-content: space-between;
+  aling-items: center;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 export const ImgProduct = styled.img`
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 `;
 export const StyledTypography = muiStyles.styled(Typography)`
     font-size: 15px;

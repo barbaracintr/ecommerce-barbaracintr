@@ -2,19 +2,17 @@ import { useContext } from "react";
 
 import { CartContext } from "../../providers/cart";
 
-import { FlexContainer } from "../../styles/global";
-
 import { ProductsCart } from "../ProductsCart";
 import { Total } from "../Total";
 
-import { StyledTypography, StyledPaper, List } from "./styles";
+import { StyledTypography, StyledPaper, List, BoxContainer } from "./styles";
 
 export const Cart = () => {
   const { itemCart, removeFromProductsCart } = useContext(CartContext);
 
   return (
     <>
-      <FlexContainer justifyContent="space-around">
+      <BoxContainer>
         <StyledPaper elevation={8}>
           <StyledTypography title component="h1">
             SHOPPING CART
@@ -34,7 +32,7 @@ export const Cart = () => {
           </List>
         </StyledPaper>
         <Total productsCart={itemCart} />
-      </FlexContainer>
+      </BoxContainer>
     </>
   );
 };

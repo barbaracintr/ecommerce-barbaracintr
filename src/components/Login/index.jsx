@@ -89,7 +89,11 @@ export const Login = () => {
             Sign in
           </StyledButton>
         </StyledForm>
-        <FlexContainer flexDirection="row" justifyContent="center">
+        <FlexContainer
+          flexDirection="row"
+          justifyContent="center"
+          padding="20px"
+        >
           <StyledTypography component="p">Create account</StyledTypography>
           <StyledButtonRegister
             size="small"

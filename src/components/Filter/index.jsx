@@ -6,7 +6,6 @@ import { ProductsContext } from "../../providers/products";
 
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
 
 import { StyledSelect, StyledMenuItem } from "./styles.js";
 
@@ -36,7 +35,7 @@ export const Filter = () => {
 
   return (
     <>
-      <FormControl variant="standard" sx={{ width: 120 }}>
+      <FormControl variant="standard">
         <InputLabel id="label">Categories</InputLabel>
         <StyledSelect
           labelId="label"
@@ -53,7 +52,6 @@ export const Filter = () => {
             Women's Clothing
           </StyledMenuItem>
         </StyledSelect>
-        <FormHelperText>Select a category</FormHelperText>
       </FormControl>
     </>
   );

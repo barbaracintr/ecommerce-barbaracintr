@@ -4,6 +4,7 @@ import {
   ProductsDetail,
   StyledPaper,
   StyledTypography,
+  BoxContainer,
 } from "./styles.js";
 
 import { FlexContainer } from "../../styles/global";
@@ -12,16 +13,14 @@ export const Product = ({ product }) => {
   return (
     <>
       <ProductsDetail to={`/details/${product.id}`}>
-        <FlexContainer
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          width="10%"
-          gap="0px"
-          padding="0px"
-        >
+        <BoxContainer>
           <StyledPaper elevation={3} key={product.id}>
-            <FlexContainer flexDirection="column" justifyContent="center">
+            <FlexContainer
+              flexDirection="column"
+              justifyContent="center"
+              padding="10px"
+              gap="10px"
+            >
               <ImgProduct src={product.image} />
               <Box>
                 <StyledTypography category component="span">
@@ -36,7 +35,7 @@ export const Product = ({ product }) => {
               </Box>
             </FlexContainer>
           </StyledPaper>
-        </FlexContainer>
+        </BoxContainer>
       </ProductsDetail>
     </>
   );
