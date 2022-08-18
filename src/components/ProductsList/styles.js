@@ -1,9 +1,18 @@
 import styled from "styled-components";
 
 export const StyledList = styled.ul`
-    width: 80%;
-    heigth: 20%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-`
+  margin: 0 auto;
+  display: flex;
+  aling-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  gap: 10px;
+  width: 60%;
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+  }
+`;

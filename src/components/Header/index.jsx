@@ -2,19 +2,17 @@ import { Filter } from "../Filter";
 import { Logo } from "../Logo";
 import { NavBar } from "../NavBar";
 
-import { Head } from "./styles.js";
-
-import { FlexContainer } from "../../styles/global";
+import { Head, BoxContainer } from "./styles.js";
 
 export const Header = () => {
   return (
     <>
       <Head>
-        <FlexContainer justifyContent="space-around" alignItems="center">
+        <BoxContainer>
           <Logo />
           <Filter />
           <NavBar />
-        </FlexContainer>
+        </BoxContainer>
       </Head>
     </>
   );

@@ -7,7 +7,7 @@ export const Total = ({ productsCart }) => {
 
   return (
     <>
-      <StyledCard elevation={2}>
+      <StyledCard elevation={2} sx={{ width: 300, marginBottom: 1 }}>
         <StyledTypography
           component="p"
           sx={{

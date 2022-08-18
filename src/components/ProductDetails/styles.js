@@ -4,10 +4,14 @@ import * as muiStyles from "@mui/material/styles";
 import { Typography, Button, InputLabel, Paper } from "@mui/material";
 
 export const StyledPaper = muiStyles.styled(Paper)`
-    width: 50vw;
+    width: 40vw;
     margin: 0 auto;
-    margin-top: 2vw;
-    width: 40%;
+    margin-top: 4vw;
+    margin-bottom: 2vw;
+
+    @media only screen and (max-width: 600px) {
+        width: 90vw;
+    }
 `;
 export const Box = styled.div`
   display: flex;
@@ -19,18 +23,26 @@ export const Box = styled.div`
   padding: 20px;
 `;
 export const ImgProduct = styled.img`
-  width: 210px;
-  height: 230px;
+  width: 15vw;
+  height: 28vh;
   margin 0 auto;
+
+    @media only screen and (max-width: 600px) {
+        width: 15vw;
+        height: 20vh;
+    }
 `;
 export const StyledTypography = muiStyles.styled(Typography)`
     font-weight: ${(props) => (props.title ? "500" : "300")};
     font-size: ${(props) => (props.title ? "19px" : "13px")};
     background-color: ${(props) => (props.category ? "#89f8" : "none")};
-    display: ${(props) => (props.category ? "inline" : "block")};
     color: #000;
     font-family: 'Inter';
     margin: 0.2em;
+
+    @media only screen and (max-width: 600px) {
+        font-size: ${(props) => (props.title ? "15px" : "10px")};
+    }
 `;
 export const StyledInputLabel = muiStyles.styled(InputLabel)`
     color: #000;
@@ -39,7 +51,12 @@ export const StyledInputLabel = muiStyles.styled(InputLabel)`
     font-size: 12.182px;
 `;
 export const InputQty = styled.input`
-    width: 10vw;
+  width: 10vw;
+
+  :focus {
+    background-color: #ef32d9;
+    color: #fff;
+  }
 `;
 export const StyledButton = muiStyles.styled(Button)`
     font-family: 'Inter';
