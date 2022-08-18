@@ -12,9 +12,18 @@ export const StyledTypography = muiStyles.styled(Typography)`
     font-weight: ${(props) => (props.title ? "400" : "300")};
     font-size: ${(props) => (props.title ? "15px" : "14px")};
     background-color: ${(props) => (props.category ? "#89f8" : "none")};
+    display: ${(props) => (props.category ? "inline-block" : "block")};
+    width: ${(props) => (props.category ? "8vw" : "")};
     color: #000;
     font-family: 'Inter';
     margin: 0.2em;
+
+    @media only screen and (max-width: 600px) {
+      font-size: ${(props) => (props.title ? "11px" : "10px")};
+      font-weight: ${(props) => (props.title ? "600" : "300")};
+      display: ${(props) => (props.category ? "inline-block" : "block")};
+      width: ${(props) => (props.category ? "28vw" : "")};
+    }
 `;
 export const StyledPaper = muiStyles.styled(Paper)`
   font-size: 1rem;
@@ -22,8 +31,9 @@ export const StyledPaper = muiStyles.styled(Paper)`
   height: 45vh;
 
   @media only screen and (max-width: 600px) {
-    width: 95vw;
+    width: 70vw;
     margin: 10px;
+    padding: 5px;
   }
 `;
 export const ImgProduct = styled.img`
@@ -33,8 +43,8 @@ export const ImgProduct = styled.img`
   align-self: center;
 
   @media only screen and (max-width: 600px) {
-    width: 20vw;
-    height: 20vh;
+    width: 20.5vw;
+    height: 20.5vh;
   }
 `;
 export const ProductsDetail = styled(Link)`
@@ -46,4 +56,8 @@ export const Box = styled.div`
   justify-content: space-between;
   aling-items: flex-start;
   height: 20vh;
+
+  @media only screen and (max-width: 600px) {
+    justify-content: space-around;
+  }
 `;

@@ -13,6 +13,6 @@ export const StyledList = styled.ul`
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     overflow: auto;
-    width: 100%;
+    width: 80vw;
   }
 `;
