@@ -6,7 +6,8 @@ import { Typography, Button, Paper } from "@mui/material";
 export const ItemList = styled.li`
   display: flex;
   justify-content: space-between;
-  aling-items: center;
+  align-items: center;
+  font-family: 'Inter';
 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
@@ -15,6 +16,12 @@ export const ItemList = styled.li`
 export const ImgProduct = styled.img`
   width: 50px;
   height: 50px;
+
+  @media only screen and (max-width: 600px) {
+    display: flex;
+    align-self: center;
+  }
+
 `;
 export const StyledTypography = muiStyles.styled(Typography)`
     font-size: 15px;

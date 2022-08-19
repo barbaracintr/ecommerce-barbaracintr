@@ -28,8 +28,8 @@ export const ImgProduct = styled.img`
   margin 0 auto;
 
     @media only screen and (max-width: 600px) {
-        width: 15vw;
-        height: 20vh;
+        width: 32vw;
+        height: 25vh;
     }
 `;
 export const StyledTypography = muiStyles.styled(Typography)`
