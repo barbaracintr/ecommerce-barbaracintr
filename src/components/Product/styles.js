@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export const BoxContainer = styled.li`
   margin: 0 auto;
+  margin-left: 9px;
 `;
 export const StyledTypography = muiStyles.styled(Typography)`
     font-weight: ${(props) => (props.title ? "400" : "300")};
@@ -19,7 +20,7 @@ export const StyledTypography = muiStyles.styled(Typography)`
     margin: 0.2em;
 
     @media only screen and (max-width: 600px) {
-      font-size: ${(props) => (props.title ? "11px" : "10px")};
+      font-size: ${(props) => (props.title ? "12px" : "11px")};
       font-weight: ${(props) => (props.title ? "600" : "300")};
       display: ${(props) => (props.category ? "inline-block" : "block")};
       width: ${(props) => (props.category ? "28vw" : "")};
@@ -43,8 +44,8 @@ export const ImgProduct = styled.img`
   align-self: center;
 
   @media only screen and (max-width: 600px) {
-    width: 20.5vw;
-    height: 20.5vh;
+    width: 30vw;
+    height: 20vh;
   }
 `;
 export const ProductsDetail = styled(Link)`
